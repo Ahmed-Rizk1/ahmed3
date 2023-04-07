@@ -1,41 +1,58 @@
-import 'package:flutter/material.dart';
+import 'dart:html';
 
-void main() => runApp(MyApp());
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      home: FaceBook(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class FaceBook extends StatelessWidget {
+  const FaceBook({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
+          backgroundColor: Colors.white,
+          elevation: 11.5,
+          centerTitle: true,
+          title: Text("FaceBook",
+              style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22)),
+          leading: IconButton(
+            icon: Icon(Icons.menu, color: Colors.blueAccent, size: 30),
+            onPressed: () {},
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.message, color: Colors.blueAccent),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.search, color: Colors.blueAccent),
+              onPressed: () {},
+            ),
+          ]
+          // ignsre: prefer_const_constructors
+          // ignore: prefer_const_constructors
+          ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
     );
   }
